@@ -10,6 +10,9 @@ export const getProducts = async (req, res) => {
 
 
     res.json({
+        code: 'F100',
+        message: 'Se encontraron los productos',
+        data: result.recordset
 
     })
 }
