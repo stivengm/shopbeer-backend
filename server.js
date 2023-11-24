@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const userRoutes = require('./src/routes/user');
 
+import express  from 'express';
+
 const app = express();
 
 // Middlewares
