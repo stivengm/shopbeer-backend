@@ -6,6 +6,7 @@ Proyecto desarrollado en NodeJS con Express.
 ```sh
 npm init -y //Éste comando será para crear un archivo `package.json`.
 npm i express //Éste comando será para instalar express en el proyecto.
+npm i express //Éste comando será para instalar express en el proyecto.
 ```
 
 ## Ejecución del proyecto
