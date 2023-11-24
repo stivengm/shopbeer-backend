@@ -1,5 +1,6 @@
-Use ShopBeer
+--CREATE DATABASE ShopBeer
 
+Use ShopBeer
 
 -------------------------------------------------------------------
 CREATE TABLE Users(

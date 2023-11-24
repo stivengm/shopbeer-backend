@@ -1,16 +1,22 @@
-import { Connection } from "tedious";
+import sql from 'mssql';
 
-const config = {
-    server: 'localhost\SQLEXPRESS',
-    authentication: {
-        type: 'default',
-        options: {
-            userName: 'Pruebas',
-            password: 'Pruebas123456789'
-        }
+const dbSettings = {
+    user: 'connectionback',
+    password: 'Superankes15!',
+    server: 'localhost',
+    port: 1433,
+    database: 'ShopBeer',
+    options: {
+        encrypt: true,
+        trustServerCertificate: true
     }
 }
 
-const Connection = new Connection(config);
-
-Connection.connect();
+export async function getConnection() {
+    try {
+        const pool = await sql.connect(dbSettings);
+        return pool;
+    } catch (error) {
+        console.log(error);
+    }
+}

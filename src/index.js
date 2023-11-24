@@ -1,5 +1,7 @@
 import express, { json } from 'express';
 
+import ProductsRouter from './routes/products.routes.js';
+
 const app = express();
 app.disable('x-powered-by');
 
@@ -10,7 +12,7 @@ app.get('/', (req, res) => {
     
 });
 
-
+app.use('/products', ProductsRouter);
 
 app.use((req, res) => {
     res.status(200).send({
