@@ -11,7 +11,7 @@ configRouter.get('/notifications', async (req, res) => {
 
     if (rows.length > 0) {
         res.status(200).send({
-            "code": "F200",
+            "code": "F100",
             "message": "Notificaciones encontradas",
             "data": rows
         });
@@ -19,7 +19,7 @@ configRouter.get('/notifications', async (req, res) => {
     }
 
     res.status(200).send({
-        "code": "F100",
+        "code": "F200",
         "message": "No se ha encontrado notificaciones.",
         "data": rows
     });
