@@ -1,16 +1,8 @@
 import express, { json } from 'express';
-import { config } from 'dotenv';
-import pg from 'pg';
-
-config();
+import { configRouter } from './src/routes/config.js';
 
 const app = express();
 app.disable('x-powered-by');
-
-const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-    // ssl: true // Descomentariar esto para local
-})
 
 app.get('/ping', async (req, res) => {
     const result = await pool.query('SELECT NOW()');
@@ -19,10 +11,30 @@ app.get('/ping', async (req, res) => {
 
 app.use(json());
 
+app.use("/api/v1/config", configRouter);
+
 app.get('/', (req, res) => {
     res.send('<h1>Mi respuesta</h1>');
     
 });
+
+// app.get('/newTable', async (req, res) => {
+//     const result = await pool.query(`
+//     CREATE TABLE notifications(
+//         id INT NOT NULL,
+//         name VARCHAR(150),
+//         isActive INT NOT NULL
+//     );
+//     `);
+//     res.json(result.rows[0]);
+// });
+
+// app.get('/consultTable', async (req, res) => {
+//     const { rows } = await pool.query(`
+//     SELECT * FROM notifications
+//     `);
+//     res.json({ msg: 'OK', data: rows });
+// });
 
 
 app.use((req, res) => {
