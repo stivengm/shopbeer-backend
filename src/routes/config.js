@@ -25,3 +25,17 @@ configRouter.get('/notifications', async (req, res) => {
     });
 
 });
+
+configRouter.post('/notifications', async (req, res) => {
+
+    const { id, name, isactive } = req.body;
+    const sql = 'INSERT INTO notifications(id, name, isactive) VALUES($1, $2, $3) RETURNING *'
+    const { rows } = await pool.query(sql, [id, name, isactive]);
+
+    res.status(200).send({
+        "code": "F100",
+        "message": "Se ha guardado el siguiente registro en la tabla NOTIFICATIONS",
+        "data": rows[0]
+    });
+
+});
