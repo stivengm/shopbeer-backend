@@ -5,7 +5,7 @@
     ************ CREACIÓN DE TABLA NOTIFICACIONES ************  
 
 
-    const resultTableNotifications = await pool.query(`
+    const result = await pool.query(`
         CREATE TABLE Notifications(
             id SERIAL PRIMARY KEY,
             name VARCHAR(50),
@@ -14,7 +14,20 @@
         )
     `);
 
-    res.json(resultTableNotifications.rows[0]);
+    res.json(result.rows[0]);
 
 
 ---------------------------------------------------------------------------------------
+
+    ************ CREACIÓN DE TABLA Conjunto ************  
+
+    const result = await pool.query(`
+        CREATE TABLE ResidentialLocation(
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(100),
+            description VARCHAR(150),
+            isAvailable INT NOT NULL
+        )
+    `);
+
+    res.json(result.rows[0]);
