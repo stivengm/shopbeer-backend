@@ -52,3 +52,16 @@
     `);
 
     res.json(result.rows[0]);
+
+
+---------------------------------------------------------------------------------------
+
+    ************ CREACIÓN DE TABLA CATEGORÍA ************  
+
+    const result = await pool.query(`
+        CREATE TABLE Category(
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(50),
+            isAvailable INT
+        )
+    `);
