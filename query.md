@@ -65,3 +65,24 @@
             isAvailable INT
         )
     `);
+
+
+---------------------------------------------------------------------------------------
+
+    ************ CREACIÓN DE TABLA PRODUCTOS ************  
+
+    const result = await pool.query(`
+        CREATE TABLE Products(
+            id SERIAL PRIMARY KEY,
+            idCategory INT NOT NULL,
+            name VARCHAR(50),
+            description VARCHAR(50),
+            price VARCHAR(50),
+            image VARCHAR(256),
+            isAvailable INT NOT NULL,
+            amount VARCHAR(10),
+            CONSTRAINT fk_Category FOREIGN KEY (idCategory) REFERENCES Category (id)
+        )
+    `);
+
+    res.json(result.rows[0]);
