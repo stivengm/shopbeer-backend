@@ -86,3 +86,19 @@
     `);
 
     res.json(result.rows[0]);
+
+
+---------------------------------------------------------------------------------------
+
+    ************ CREACIÓN DE TABLA MÉTODOS DE PAGO ************  
+
+    const result = await pool.query(`
+        CREATE TABLE PaymentMethods(
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(50),
+            description VARCHAR(256),
+            isAvailable INT NOT NULL
+        )
+    `);
+
+    res.json(result.rows[0]);
