@@ -10,7 +10,18 @@ POST http://localhost:3000/api/v1/config/notifications
 content-type: application/json
 
 {
-    "id": 1,
     "name": "Mantenimiento",
+    "description": "Habrá mantenimiento el día 15 de enero.",
+    "isactive": 1
+}
+
+
+###
+POST http://localhost:3000/api/v1/user/register
+content-type: application/json
+
+{
+    "name": "Mantenimiento",
+    "description": "Habrá mantenimiento el día 15 de enero.",
     "isactive": 1
 }
