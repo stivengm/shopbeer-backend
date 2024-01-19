@@ -1,10 +1,13 @@
 import express, { json } from 'express';
 
+import cors from 'cors';
+
 import { configRouter } from './src/routes/config.js';
 import { userRouter } from './src/routes/user.js';
 import { pool } from './database.js';
 
 const app = express();
+app.use(cors());
 app.disable('x-powered-by');
 
 app.get('/ping', async (req, res) => {
