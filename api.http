@@ -1,6 +1,21 @@
 ###
 GET http://localhost:3000/
 
+### Consulta de Configuración
+GET http://localhost:3000/api/v1/config/configuration
+
+
+### Creación de configuración
+POST http://localhost:3000/api/v1/config/configuration
+content-type: application/json
+
+{
+    "nameApp": "ShopBeer",
+	"versionWeb": "1.0.0",
+	"versionApp": "1.0.0",
+	"api": "https://shop-beer-back.onrender.com"
+}
+
 ### Consulta de notificaciones.
 GET http://localhost:3000/api/v1/config/notifications
 
