@@ -2,6 +2,25 @@
 
 ---------------------------------------------------------------------------------------
 
+
+    ************ CREACIÓN DE TABLA CONFIGURACIÓN ************  
+
+
+    const result = await pool.query(`
+        CREATE TABLE Config(
+            nameApp VARCHAR(50),
+            versionWeb VARCHAR(10),
+            versionApp VARCHAR(10),
+            api VARCHAR(100)
+        )
+    `);
+
+    res.json(result.rows[0]);
+
+
+
+---------------------------------------------------------------------------------------
+
     ************ CREACIÓN DE TABLA NOTIFICACIONES ************  
 
 
