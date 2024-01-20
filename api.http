@@ -45,7 +45,22 @@ POST http://localhost:3000/api/v1/user/register
 content-type: application/json
 
 {
-    "name": "Mantenimiento",
-    "description": "Habrá mantenimiento el día 15 de enero.",
+    "id": 1,
+    "name": "Habrá mantenimiento el día 15 de enero.",
     "isactive": 1
+}
+
+
+### OBTENER TODAS LAS LOCALIZACIONES 
+GET http://localhost:3000/api/v1/user/getLocations
+
+
+### NUEVA LOCALIZACIÓN 
+POST http://localhost:3000/api/v1/user/newLocation
+content-type: application/json
+
+{
+    "name": "Vistas del Río 1",
+    "description": "Calle 138C sur 14K-26",
+    "isavailable": 1
 }
