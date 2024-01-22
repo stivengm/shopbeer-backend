@@ -3,8 +3,11 @@ import { pool } from '../../database.js';
 export class ConfigController {
 
     static async getConfiguration(req, res) {
+        console.info("------------------------------");
+        console.info("INICIO PROCESO PARA OBTENER CONFIGURACIONES");
+        console.info("------------------------------");
         const { rows } = await pool.query(`
-            SELECT * FROM Config
+        SELECT * FROM Config
         `);
         if (rows.length > 0) {
             res.status(200).send({
@@ -19,6 +22,8 @@ export class ConfigController {
             "message": "No se ha encontrado Configuración.",
             "data": rows
         });
+        console.info("FIN PROCESO PARA OBTENER CONFIGURACIONES");
+        console.info("------------------------------");
     }
 
     static async createConfiguration(req, res) {
