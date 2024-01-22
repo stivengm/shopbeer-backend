@@ -1,10 +1,11 @@
 import express, { json } from 'express';
-
 import cors from 'cors';
+
+import { pool } from './database.js';
 
 import { configRouter } from './src/routes/config.js';
 import { userRouter } from './src/routes/user.js';
-import { pool } from './database.js';
+import { productsRouter } from './src/routes/products.js';
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,8 @@ app.use(json());
 app.use("/api/v1/config", configRouter);
 
 app.use("/api/v1/user", userRouter);
+
+app.use('api/v1/products', productsRouter);
 
 app.get('/', (req, res) => {
     res.send('<h1>Mi respuesta</h1>');
